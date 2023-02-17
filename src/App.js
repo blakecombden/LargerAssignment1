@@ -1,5 +1,6 @@
 import './App.css';
 import {useState, useEffect} from "react";
+import {LeaveReview} from './Form';
 
 function MovieList(props) {
   return (
@@ -32,11 +33,12 @@ function App() {
   if (movies == null) {
     return<h1>Loading...</h1>
   }
-  //console.log(movies);
+  console.log(movies);
 
   return (
       <>
         <MovieList fav_movies={(movies)}></MovieList>
+        <LeaveReview movies={movies} setMovies={setMovies}></LeaveReview>
       </>
   )
 }
