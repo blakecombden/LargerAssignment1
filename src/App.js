@@ -1,25 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState, useEffect} from "react";
 
-function App() {
+function MovieList(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <ul>
+        {
+          props.fav_movies.map(movie =>
+              <ul>
+                <li>{movie.title}</li>
+                <li>{movie.releaseDate}</li>
+                <li>{movie.actors}</li>
+                <li>{movie.rating}</li>
+              </ul>)
+        }
+      </ul>
+  )
 }
 
+function App() {
+
+  let [movies, setMovies] = useState(null);
+
+  useEffect(() => {
+    // load movie data from json
+    fetch("./movies.json")
+        .then(response => response.json())
+        .then(setMovies)
+        .catch(e => console.log(e.message()))
+  }, []);
+
+  if (movies == null) {
+    return<h1>Loading...</h1>
+  }
+  //console.log(movies);
+
+  return (
+      <>
+        <MovieList fav_movies={(movies)}></MovieList>
+      </>
+  )
+}
 export default App;
