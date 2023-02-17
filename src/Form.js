@@ -22,7 +22,6 @@ export function LeaveReview(props) {
             "releaseDate" : releaseDate,
             "actors" : actors,
             "rating" : rating});
-        console.log(movieData);
         props.setMovies(movieData);
 
         movieTitle.current.value = "";

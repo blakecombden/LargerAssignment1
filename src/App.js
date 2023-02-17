@@ -1,6 +1,7 @@
 import './App.css';
 import {useState, useEffect} from "react";
 import {LeaveReview} from './Form';
+import {Routes, Route} from "react-router-dom"
 
 function MovieList(props) {
   return (
@@ -33,13 +34,13 @@ function App() {
   if (movies == null) {
     return<h1>Loading...</h1>
   }
-  console.log(movies);
+  //console.log(movies);
 
   return (
-      <>
-        <MovieList fav_movies={(movies)}></MovieList>
-        <LeaveReview movies={movies} setMovies={setMovies}></LeaveReview>
-      </>
+      <Routes>
+          <Route path="/" element={<MovieList fav_movies={(movies)} />} />
+          <Route path="/review" element={<LeaveReview movies={movies} setMovies={setMovies}/>} />
+      </Routes>
   )
 }
 export default App;
