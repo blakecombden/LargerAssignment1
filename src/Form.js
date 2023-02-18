@@ -1,7 +1,9 @@
-import React, { useEffect, useState, useRef} from "react";
+import React, {useRef} from "react";
+import {Link} from "react-router-dom";
 
 export function LeaveReview(props) {
 
+    const movieImage = useRef();
     const movieTitle = useRef();
     const movieReleaseDate = useRef();
     const movieActors = useRef();
@@ -13,6 +15,7 @@ export function LeaveReview(props) {
         props.movies.forEach( movie => {
             movieData.push(movie);
         })
+        const image = movieImage.current.value;
         const title = movieTitle.current.value;
         const releaseDate = movieReleaseDate.current.value;
         const actors = movieActors.current.value;
@@ -21,7 +24,8 @@ export function LeaveReview(props) {
         movieData.push({"title" : title,
             "releaseDate" : releaseDate,
             "actors" : actors,
-            "rating" : rating});
+            "rating" : rating,
+        "imageFileName" : image});
         props.setMovies(movieData);
 
         movieTitle.current.value = "";
@@ -31,6 +35,8 @@ export function LeaveReview(props) {
     };
 
     return (
+        <>
+        <Link to="/">Home</Link>
         <form onSubmit={submit}>
             <input
                 ref={movieTitle}
@@ -50,5 +56,6 @@ export function LeaveReview(props) {
             />
             <button>Add</button>
         </form>
+        </>
     )
 }

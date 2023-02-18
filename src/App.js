@@ -1,21 +1,28 @@
 import './App.css';
-import {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import {LeaveReview} from './Form';
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route, Link} from "react-router-dom"
 
 function MovieList(props) {
   return (
+      <div class="wrapper">
+          <>&emsp;&emsp;&emsp;&emsp;</>
+          <Link to="/">Home</Link>
+          <>&emsp;&emsp;</>
+          <Link to="/review">Review</Link>
       <ul>
         {
           props.fav_movies.map(movie =>
               <ul>
-                <li>{movie.title}</li>
-                <li>{movie.releaseDate}</li>
-                <li>{movie.actors}</li>
-                <li>{movie.rating}</li>
+                  <li>{movie.title}</li>
+                  <li>{movie.releaseDate}</li>
+                  <li>{movie.actors}</li>
+                  <li>{movie.rating}</li>
+                  <button>Remove</button>
               </ul>)
         }
       </ul>
+      </div>
   )
 }
 
@@ -34,7 +41,6 @@ function App() {
   if (movies == null) {
     return<h1>Loading...</h1>
   }
-  //console.log(movies);
 
   return (
       <Routes>
