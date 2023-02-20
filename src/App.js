@@ -4,6 +4,7 @@ import {LeaveReview} from './Form';
 import {Routes, Route, Link} from "react-router-dom"
 
 function MovieList(props) {
+
   return (
       <div class="wrapper">
           <>&emsp;&emsp;&emsp;&emsp;</>
@@ -12,7 +13,7 @@ function MovieList(props) {
           <Link to="/review">Review</Link>
       <ul>
         {
-          props.fav_movies.map(movie =>
+          props.movies.map(movie =>
               <ul>
                   <li>{movie.title}</li>
                   <li>{movie.releaseDate}</li>
@@ -44,7 +45,7 @@ function App() {
 
   return (
       <Routes>
-          <Route path="/" element={<MovieList fav_movies={(movies)} />} />
+          <Route path="/" element={<MovieList movies={movies} />} />
           <Route path="/review" element={<LeaveReview movies={movies} setMovies={setMovies}/>} />
       </Routes>
   )
