@@ -46,6 +46,7 @@ export function LeaveReview(props) {
         movieReleaseDate.current.value = "";
         movieActors.current.value = "";
         movieRating.current.value = "";
+        document.getElementById("selection").innerHTML = "";
     };
 
     return (

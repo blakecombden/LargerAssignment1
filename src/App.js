@@ -5,6 +5,11 @@ import {Routes, Route, Link} from "react-router-dom"
 
 function MovieList(props) {
 
+    const remove = (title) => {
+        const movieData = props.movies.filter((movie) => movie.title !== title);
+        props.setMovies(movieData);
+    }
+
   return (
       <div class="wrapper">
           <>&emsp;&emsp;&emsp;&emsp;</>
@@ -15,11 +20,13 @@ function MovieList(props) {
         {
           props.movies.map(movie =>
               <ul>
+                  <br></br>
+                  <img src={'./images/' + movie.image} style={{height:"275px"}} alt="Movie Poster" />
                   <li>{movie.title}</li>
-                  <li>{movie.releaseDate}</li>
-                  <li>{movie.actors}</li>
-                  <li>{movie.rating}</li>
-                  <button>Remove</button>
+                  <li>Release Date: {movie.releaseDate}</li>
+                  <li>Starring: {movie.actors}</li>
+                  <li>Rating: {movie.rating}</li>
+                  <button onClick={() => remove(movie.title)}>Remove</button>
               </ul>)
         }
       </ul>
@@ -45,7 +52,7 @@ function App() {
 
   return (
       <Routes>
-          <Route path="/" element={<MovieList movies={movies} />} />
+          <Route path="/" element={<MovieList movies={movies} setMovies={setMovies}/>} />
           <Route path="/review" element={<LeaveReview movies={movies} setMovies={setMovies}/>} />
       </Routes>
   )
