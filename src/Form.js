@@ -22,32 +22,34 @@ export function LeaveReview(props) {
         }
     }
 
-    const submit = (event) => {
-        event.preventDefault();
-        const movieData = [];
-        props.movies.forEach( movie => {
-            movieData.push(movie);
-        })
-        const image = movieImage.current.value;
-        const title = movieTitle.current.value;
-        const releaseDate = movieReleaseDate.current.value;
-        const actors = movieActors.current.value;
-        const rating = movieRating.current.value;
-
-        movieData.push({"title" : title,
-            "releaseDate" : releaseDate,
-            "actors" : actors,
-            "rating" : rating,
-        "image" : image});
-        props.setMovies(movieData);
-
-        movieImage.current.value = "";
-        movieTitle.current.value = "";
-        movieReleaseDate.current.value = "";
-        movieActors.current.value = "";
-        movieRating.current.value = "";
-        document.getElementById("selection").innerHTML = "";
-    };
+    // const submit = (event) => {
+    //     event.preventDefault();
+    //     const movieData = [];
+    //     props.movies.forEach( movie => {
+    //         movieData.push(movie);
+    //     })
+    //     const image = movieImage.current.value;
+    //     const title = movieTitle.current.value;
+    //     const releaseDate = movieReleaseDate.current.value;
+    //     const actors = movieActors.current.value;
+    //     const rating = movieRating.current.value;
+    //
+    //     movieData.push(
+    //         {"title" : title,
+    //         "releaseDate" : releaseDate,
+    //         "actors" : actors,
+    //         "rating" : rating,
+    //         "image" : image}
+    //     );
+    //     props.setMovies(movieData);
+    //
+    //     movieImage.current.value = "";
+    //     movieTitle.current.value = "";
+    //     movieReleaseDate.current.value = "";
+    //     movieActors.current.value = "";
+    //     movieRating.current.value = "";
+    //     document.getElementById("selection").innerHTML = "";
+    // };
 
     return (
         <div class="wrapper">
@@ -55,7 +57,7 @@ export function LeaveReview(props) {
             <Link to="/">Home</Link>
             <>&emsp;&emsp;</>
             <Link to="/review">Review</Link>
-        <form onSubmit={submit}>
+        <form action="/review" method="post" onSubmit="/review">
             <p>
                 Leave a review here!
             </p>

@@ -40,7 +40,7 @@ function App() {
 
   useEffect(() => {
     // load movie data from json
-    fetch("./movies.json")
+    fetch("/movies")
         .then(response => response.json())
         .then(setMovies)
         .catch(e => console.log(e.message()))
