@@ -56,7 +56,7 @@ export function LeaveReview(props) {
             <>&emsp;&emsp;</>
             <Link to="/">Home</Link>
             <>&emsp;&emsp;</>
-        <form method="post" action="/api/review">
+        <form method="post" action="/api/review" encType="multipart/form-data">
             <p>
                 Leave a review here!
             </p>
@@ -95,14 +95,7 @@ export function LeaveReview(props) {
             <p>
                 <label>Choose an image:</label>
                 <br></br>
-
-
-
-                <select name={"image"} ref={movieImage} id="posters" onChange={onChange}>
-                    <option value ="default"></option>
-                    <option value="template1.jpg">Generic Poster #1</option>
-                    <option value="template2.jpg">Generic Poster #2</option>
-                </select>
+                <input type="file" name="image"/>
             </p>
             <div id="selection"></div>
             <button>Add</button>

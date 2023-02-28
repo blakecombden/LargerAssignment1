@@ -19,7 +19,7 @@ function MovieList(props) {
           props.movies.map(movie =>
               <ul>
                   <br></br>
-                  <img src={'./images/' + movie.image} style={{height:"275px"}} alt="Movie Poster" />
+                  <img src={movie.image} style={{height:"275px"}} alt={movie.image} />
                   <li>{movie.title}</li>
                   <li>Release Date: {movie.releaseDate}</li>
                   <li>Starring: {movie.actors}</li>
