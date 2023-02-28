@@ -37,7 +37,7 @@ function App() {
   let [movies, setMovies] = useState(null);
 
   useEffect(() => {
-    fetch("/movies")
+    fetch("/api/movies")
         .then(response => response.json())
         .then(setMovies)
         .catch(e => console.log(e.message()))
