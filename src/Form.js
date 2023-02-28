@@ -53,17 +53,17 @@ export function LeaveReview(props) {
 
     return (
         <div class="wrapper">
-            <>&emsp;&emsp;&emsp;</>
+            <>&emsp;&emsp;</>
             <Link to="/">Home</Link>
             <>&emsp;&emsp;</>
-            <Link to="/review">Review</Link>
-        <form action="/review" method="post" onSubmit="/review">
+        <form method="post" onSubmit="/review">
             <p>
                 Leave a review here!
             </p>
             <label>Title:</label>
             <p>
                 <input
+                    name={"title"}
                     ref={movieTitle}
                     type="text"
                 />
@@ -71,6 +71,7 @@ export function LeaveReview(props) {
             <label>Release Date:</label>
             <p>
                 <input
+                    name={"releaseDate"}
                     ref={movieReleaseDate}
                     type="text"
                 />
@@ -78,6 +79,7 @@ export function LeaveReview(props) {
             <label>Actors:</label>
             <p>
                 <input
+                    name={"actors"}
                     ref={movieActors}
                     type="text"
                 />
@@ -85,6 +87,7 @@ export function LeaveReview(props) {
             <label>Rating:</label>
             <p>
                 <input
+                    name={"rating"}
                     ref={movieRating}
                     type="text"
                 />
@@ -92,7 +95,7 @@ export function LeaveReview(props) {
             <p>
                 <label>Choose an image:</label>
                 <br></br>
-                    <select ref={movieImage} id="posters" name="posters" onChange={onChange}>
+                    <select name={"image"} ref={movieImage} id="posters" onChange={onChange}>
                         <option value ="default"></option>
                         <option value="template1.jpg">Generic Poster #1</option>
                         <option value="template2.jpg">Generic Poster #2</option>

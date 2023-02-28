@@ -13,8 +13,6 @@ function MovieList(props) {
   return (
       <div class="wrapper">
           <>&emsp;&emsp;&emsp;&emsp;</>
-          <Link to="/">Home</Link>
-          <>&emsp;&emsp;</>
           <Link to="/review">Review</Link>
       <ul>
         {
@@ -39,7 +37,6 @@ function App() {
   let [movies, setMovies] = useState(null);
 
   useEffect(() => {
-    // load movie data from json
     fetch("/movies")
         .then(response => response.json())
         .then(setMovies)
