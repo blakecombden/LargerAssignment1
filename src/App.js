@@ -4,10 +4,26 @@ import {LeaveReview} from './Form';
 import {Routes, Route, Link} from "react-router-dom"
 
 function MovieList(props) {
-
     const remove = (title) => {
-        const movieData = props.movies.filter((movie) => movie.title !== title);
-        props.setMovies(movieData);
+        props.setMovies(props.movies.filter((movie) => movie.title !== title));
+
+        let myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        let urlencoded = new URLSearchParams();
+        urlencoded.append("title", title);
+
+        let requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+        };
+
+        fetch("/api/removeMovie", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
     }
 
   return (
