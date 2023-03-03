@@ -16,6 +16,14 @@ ul {
   list-style-type: none;
 }
 
+li {
+  margin: 10px 10px 10px 10px;
+}
+
 .wrapper {
   text-align: center;
+}
+
+.row {
+  padding: 10px 10px 10px 10px;
 }

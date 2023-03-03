@@ -1,7 +1,12 @@
 import './App.css';
 import React, {useState, useEffect} from "react";
 import {LeaveReview} from './Form';
-import {Routes, Route, Link} from "react-router-dom"
+import {Routes, Route} from "react-router-dom";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Nav from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 function MovieList(props) {
     const remove = (title) => {
@@ -28,19 +33,32 @@ function MovieList(props) {
 
   return (
       <div class="wrapper">
-          <>&emsp;&emsp;&emsp;&emsp;</>
-          <Link to="/review">Review</Link>
+          <Card style={{ width: '99rem' }}>
+              <Card.Body>
+                  <Card.Title style={{ color: 'blue'}}>Blake's Movie Reviews</Card.Title>
+                  <Card.Text>
+                      Click "Remove" to remove a movie from the list. Click "Review" to add your own review.
+                  </Card.Text>
+                  <Nav className='justify-content-center' variant="pills" defaultActiveKey="/review">
+                      <Nav.Item>
+                          <Nav.Link href="/review">Review</Nav.Link>
+                      </Nav.Item>
+                  </Nav>
+              </Card.Body>
+          </Card>
+
       <ul>
         {
           props.movies.map(movie =>
               <ul>
                   <br></br>
-                  <img src={movie.image} style={{height:"275px"}} alt={movie.image} />
-                  <li>{movie.title}</li>
-                  <li>Release Date: {movie.releaseDate}</li>
-                  <li>Starring: {movie.actors}</li>
-                  <li>Rating: {movie.rating}</li>
-                  <button onClick={() => remove(movie.title)}>Remove</button>
+                  <img src={movie.image} style={{height:"300px"}} alt={movie.image} />
+                  <li >{movie.title}</li>
+                  <li >Release Date: {movie.releaseDate}</li>
+                  <li >Starring: {movie.actors}</li>
+                  <li >Rating: {movie.rating}</li>
+                  <Button variant="danger" onClick={() => remove(movie.title)}>Remove</Button>
+                  <hr></hr>
               </ul>)
         }
       </ul>
