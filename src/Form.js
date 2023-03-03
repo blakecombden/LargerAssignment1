@@ -17,7 +17,7 @@ export function LeaveReview() {
 
     return (
         <div class="wrapper">
-            <Card style={{ width: '96rem' }}>
+            <Card style={{ width: '99rem' }}>
                 <Card.Body>
                     <Card.Title style={{ color: 'blue'}}>Blake's Movie Reviews</Card.Title>
                     <Card.Text>
@@ -34,9 +34,9 @@ export function LeaveReview() {
         <Form method="post" action="/api/review" encType="multipart/form-data">
             <Row md={4}>
                 <Col></Col>
-                <Col><Form.Label>Title:</Form.Label></Col>
+                <Col><Form.Label style={{position:"absolute", left:620}}>Title:</Form.Label></Col>
                 <Col>
-                    <Form.Control
+                    <Form.Control style={{width:250}}
                     name={"title"}
                     ref={movieTitle}
                     type="text" />
@@ -44,9 +44,9 @@ export function LeaveReview() {
             </Row>
             <Row md={4}>
                 <Col></Col>
-                <Col><Form.Label>Release Date:</Form.Label></Col>
+                <Col><Form.Label style={{position:"absolute", left:620}}>Release Date:</Form.Label></Col>
                 <Col>
-                    <Form.Control
+                    <Form.Control style={{width:250}}
                     name={"releaseDate"}
                     ref={movieReleaseDate}
                     type="text" />
@@ -54,9 +54,9 @@ export function LeaveReview() {
             </Row>
             <Row md={4}>
                 <Col></Col>
-                <Col><Form.Label>Actors:</Form.Label></Col>
+                <Col><Form.Label style={{position:"absolute", left:620}}>Actors:</Form.Label></Col>
                 <Col>
-                    <Form.Control
+                    <Form.Control style={{width:250}}
                     name={"actors"}
                     ref={movieActors}
                     type="text" />
@@ -64,13 +64,15 @@ export function LeaveReview() {
             </Row>
             <Row md={4}>
                 <Col></Col>
-                <Col><Form.Label>Rating:</Form.Label></Col>
-                <Col><Form.Control
+                <Col><Form.Label style={{position:"absolute", left:620}}>Rating:</Form.Label></Col>
+                <Col>
+                    <Form.Control style={{width:250}}
                     name={"rating"}
                     ref={movieRating}
                     type="text" />
                 </Col>
             </Row>
+            <text>&ensp;Upload the movie's poster:</text>
             <Row md={5}>
                 <Col></Col>
                 <Col></Col>
@@ -78,7 +80,7 @@ export function LeaveReview() {
                 <Col></Col>
                 <Col></Col>
             </Row>
-            <Button variant="primary" >Add</Button>
+            <Button type="submit" variant="primary" style={{width:80, position:"absolute", left:740}}>Add</Button>
         </Form>
         </div>
     )

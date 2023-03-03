@@ -7,6 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import {ListGroup} from "react-bootstrap";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function MovieList(props) {
     const remove = (title) => {
@@ -53,10 +56,18 @@ function MovieList(props) {
               <ul>
                   <br></br>
                   <img src={movie.image} style={{height:"300px"}} alt={movie.image} />
-                  <li >{movie.title}</li>
-                  <li >Release Date: {movie.releaseDate}</li>
-                  <li >Starring: {movie.actors}</li>
-                  <li >Rating: {movie.rating}</li>
+                  <Row>
+                      <Col></Col>
+                      <Col>
+                  <ListGroup as="ul">
+                      <ListGroup.Item as="li">{movie.title}</ListGroup.Item>
+                      <ListGroup.Item as="li">Release Date: {movie.releaseDate}</ListGroup.Item>
+                      <ListGroup.Item as="li">Starring: {movie.actors}</ListGroup.Item>
+                      <ListGroup.Item as="li">Rating: {movie.rating}</ListGroup.Item>
+                  </ListGroup>
+                      </Col>
+                      <Col></Col>
+                  </Row>
                   <Button variant="danger" onClick={() => remove(movie.title)}>Remove</Button>
                   <hr></hr>
               </ul>)
